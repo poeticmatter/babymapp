@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { LoadScript } from '@react-google-maps/api';
+import LocationList from './LocationList';
 
-function App() {
+const App = () => {
+  // Define your API key as a constant
+  const apiKey = "AIzaSyDp9MmbkIZXa2ExrzKPLIAY51CKB0EExQM";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Other components */}
+      {/* Pass the API key as a prop to the LoadScript component */}
+      <LoadScript
+        googleMapsApiKey={apiKey}
+        // Additional props for the LoadScript component if needed
+      >
+        {/* Pass the API key as a prop to the LocationList component */}
+        <LocationList apiKey={apiKey} />
+      </LoadScript>
     </div>
   );
-}
+};
 
 export default App;
